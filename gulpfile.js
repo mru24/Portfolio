@@ -27,8 +27,8 @@ var config = {
   imgout: 'dist/img/',
   htmlin: 'src/*.html',
   htmlout: 'dist/',
-  cssoutname: 'style.css',
-  jsoutname: 'main.js',
+  cssreplaceout: 'css/style.css',
+  jsreplaceout: 'js/main.js',
   assetsin: 'src/assets/**/*',
   assetsout: 'dist/assets/'
 }
@@ -83,8 +83,8 @@ gulp.task('copyassets', function () {
 gulp.task('html', function() {
   return gulp.src(config.htmlin)
     .pipe(htmlReplace({
-      'css': 'css/style.css',
-      'js': 'js/main.js'
+      'css': config.cssreplaceout,
+      'js': config.jsreplaceout
     }))
     .pipe(htmlMin({
       sortAttributes: true,
