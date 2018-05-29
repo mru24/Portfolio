@@ -102,5 +102,4 @@ gulp.task('build', function() {
   sequence('clean', ['css', 'js', 'img', 'copyassets', 'html'])
 })
 
-
 gulp.task('default', ['serve']);
