@@ -9,23 +9,28 @@ var imagemin = require('gulp-imagemin');
 var changed = require('gulp-changed');
 var htmlReplace = require('gulp-html-replace');
 var htmlMin = require('gulp-htmlmin');
+var copyassets = require('gulp-copy');
+var del = require('del');
+var sequence = require('run-sequence');
 
 
 var config = {
   dist: 'dist/',
   src: 'src/',
-  cssin: 'src/css/**/*.css',
-  jsin: 'src/js/**/*.js',
-  imgin: 'src/img/**/*.{jpg,jpeg,png,gif}',
-  htmlin: 'src/*.html',
   sassin: 'src/sass/**/*.sass',
+  sassout: 'src/css/',
+  cssin: 'src/css/**/*.css',
   cssout: 'dist/css/',
+  jsin: 'src/js/**/*.js',
   jsout: 'dist/js/',
+  imgin: 'src/img/**/*.{jpg,jpeg,png,gif}',
   imgout: 'dist/img/',
+  htmlin: 'src/*.html',
   htmlout: 'dist/',
-  sassout: 'src/css',
   cssoutname: 'style.css',
-  jsoutname: 'main.js'
+  jsoutname: 'main.js',
+  assetsin: 'src/assets/**/*',
+  assetsout: 'dist/assets/'
 }
 
 gulp.task('reload', function() {
@@ -47,7 +52,7 @@ gulp.task('sass', function() {
       browsers: ['last 5 versions']
     }))
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest(config.cssout))
+    .pipe(gulp.dest(config.sassout))
     .pipe(browserSync.stream());
 });
 
@@ -70,6 +75,11 @@ gulp.task('img', function() {
     .pipe(gulp.dest(config.imgout))
 });
 
+gulp.task('copyassets', function () {
+  return gulp.src(config.assetsin)
+    .pipe(gulp.dest(config.assetsout));
+});
+
 gulp.task('html', function() {
   return gulp.src(config.htmlin)
     .pipe(htmlReplace({
@@ -79,10 +89,18 @@ gulp.task('html', function() {
     .pipe(htmlMin({
       sortAttributes: true,
       sortClassName: true,
-      // collapseWhitespace: true
+      collapseWhitespace: true
     }))
     .pipe(gulp.dest(config.htmlout))
 });
+
+gulp.task('clean', function() {
+  return del([config.dist])
+});
+
+gulp.task('build', function() {
+  sequence('clean', ['css', 'js', 'img', 'copyassets', 'html'])
+})
 
 
 gulp.task('default', ['serve']);
