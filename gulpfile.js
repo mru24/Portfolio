@@ -30,7 +30,9 @@ var config = {
   cssreplaceout: 'css/style.css',
   jsreplaceout: 'js/main.js',
   assetsin: 'src/assets/**/*',
-  assetsout: 'dist/assets/'
+  assetsout: 'dist/assets/',
+  includesin: 'src/includes/**/*',
+  includesout: 'dist/includes/'
 }
 
 gulp.task('reload', function() {
@@ -80,6 +82,11 @@ gulp.task('copyassets', function () {
     .pipe(gulp.dest(config.assetsout));
 });
 
+gulp.task('copyincludes', function () {
+  return gulp.src(config.includesin)
+    .pipe(gulp.dest(config.includesout));
+});
+
 gulp.task('html', function() {
   return gulp.src(config.htmlin)
     .pipe(htmlReplace({
@@ -99,7 +106,7 @@ gulp.task('clean', function() {
 });
 
 gulp.task('build', function() {
-  sequence('clean', ['css', 'js', 'img', 'copyassets', 'html'])
+  sequence('clean', ['css', 'js', 'img', 'copyassets', 'copyincludes', 'html'])
 })
 
 gulp.task('default', ['serve']);

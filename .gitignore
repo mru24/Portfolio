@@ -1,3 +1,4 @@
 /node_modules
 /Projects
+/includes/database.php
 package-lock.json
