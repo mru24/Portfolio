@@ -19,7 +19,7 @@ $(document).ready(function() {
   });
 
   $('a').on('click', function(event) {
-    event.preventDefault();
+    // event.preventDefault();
     $.scrollTo($(this).attr('href'), 800, {
       offset: -5
     });

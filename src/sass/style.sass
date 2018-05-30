@@ -18,13 +18,14 @@ body
   color: $color-text
 
 section
+  height: auto
   min-height: 100vh
   margin: 10px 0
 
 .container
   background: white
-  min-height: 100vh
-  padding-top: 2px
+  min-height: 98vh
+  border-radius: 4px
 
 h1
   margin: 10px 0
@@ -39,16 +40,19 @@ h2
   border-bottom: $border
 
 h3
-  color: $color-text + 30
   margin-bottom: 10px
 
 a
   text-decoration: none
   color: $color-text
+  transition: .4s
 a:visited
   @extend a
 a:active
   @extend a
+a:hover
+  @extend a
+  color: red
 
 ul
   list-style: none
@@ -62,12 +66,13 @@ ul
   img
     width: 80%
     display: block
-    margin: 20px auto
+    margin: 10px auto
+    border-radius: 50px
   .about
     margin-top: 30px
   p
     text-indent: 30px
-    font-size: 1.3em
+    font-size: 1.1em
     font-weight: 300
     letter-spacing: 2px
   .skillset
@@ -123,26 +128,87 @@ ul
           width: 100%
           position: absolute
     .portfolio-item:hover img
-      animation: imgScroll infinite 12s
+      animation: imgScroll infinite 12s linear
+  .portfolioContent2
+    display: grid
+    height: 80vh
+    grid-template-rows: repeat(8, 1fr)
+    grid-template-columns: repeat(6, 1fr)
+    $gap: 5px
+    padding: $gap
+    grid-gap: $gap
+    background: #333
+    border-radius: 4px
+    .portfolio-item
+      display: flex
+      overflow-y: hidden
+      position: relative
+      &.square
+        grid-row: span 2
+        grid-column: span 2
+      &.large-square
+        grid-row: span 3
+        grid-column: span 3
+      &.small-square
+        grid-row: span 1
+        grid-column: span 1
+      &.wide
+        grid-row: span 2
+        grid-column: span 3
+      &.tall
+        grid-row: span 3
+        grid-column: span 2
+      a
+        img
+          width: 100%
+          position: absolute
+    .portfolio-item:hover img
+      animation: imgScroll infinite 12s linear
 
 #contact
-  form
-    textarea
-      resize: none
-      height: 120px
-    button
-      display: block
-      margin: auto
-      width: 120px
+  min-height: auto
+  .container
+    min-height: auto
+    p
+      font-weight: 700
+    form
+      textarea
+        resize: none
+        height: 120px
+      button
+        display: block
+        margin: auto
+        width: 120px
 footer
   a
     color: #ddd
-    &:hover
-      color: #fff
+    transition: .4s
+    font-size: 20px
   a:visited
     @extend a
   a:active
     @extend a
+  a:hover
+    @extend a
+    color: #fff
+  .social
+    width: 180px
+    margin: auto
+    ul
+      li
+        float: left
+        width: 50px
+        height: 50px
+        margin: 5px
+        a
+          img
+            width: 100%
+            border-radius: 50%
+            box-shadow: 0 0 15px #444
+            transition: .4s
+      li:hover img
+        transform: scale(1.1)
+        box-shadow: 0 0 15px #222
 
 .scrollToTop
   position: fixed
