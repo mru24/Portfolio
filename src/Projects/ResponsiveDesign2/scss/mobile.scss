@@ -1,0 +1,167 @@
+$backgroundLt: #ECF4FF;
+$backgroundDk: #272C37;
+$colorLt: #E4E4E4;
+$colorDk: #1D1D1D;
+$orange: #F15A05;
+$blue: #0C6CDE;
+
+
+body, html
+{
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica sans-serif;
+  font-size: 1.1em;
+  line-height: 1.5;
+  background-color: $backgroundLt;
+
+  text-align: center;
+}
+img
+{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+h1, h2, h3
+{
+  margin: 0;
+  padding: 1em;
+}
+p
+{
+  margin: 0;
+  padding: 1em;
+}
+.button_1
+{
+  display: inline-block;
+  background: $backgroundDk;
+  text-decoration: none;
+  padding: 1em 2em;
+  border: 1px solid $colorLt;
+  color: $colorLt;
+  border-radius: 4px;
+  margin: .5em 0;
+  transition: .4s;
+  &:hover
+  {
+    background: $backgroundDk;
+    color: $colorLt;
+  }
+}
+.orange
+{
+  color: $orange;
+}
+
+// Header
+header
+{
+  margin: 0;
+  padding: 0;
+  background: $backgroundDk;
+  #showcase
+  {
+    min-height: 480px;
+    color: $colorLt;
+    text-align: center;
+    .bg-image
+    {
+      position: absolute;
+      opacity: 0.3;
+      width: 100%;
+      height: 480px;
+      background: $backgroundDk url("../img/bg1-mobile.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .content-wrap
+    {
+      position: relative;
+      padding: 0 1em;
+      text-shadow: 0 0 3px $colorDk;
+      h1
+      {
+        font-size: 1.8em;
+        padding: 0;
+      }
+      h1:nth-child(1)
+      {
+        padding-top: 60px;
+        padding-bottom: 0;
+      }
+      h1:nth-child(3)
+      {
+        padding-top: 0;
+        padding-bottom: 30px;;
+      }
+      .button_1
+      {
+        margin-top: 1.2em;
+      }
+    }
+  }
+}
+
+// Section A
+#section-a
+{
+  padding-bottom: 2em;
+}
+
+// Section B
+#section-b
+{
+  background: $backgroundDk;
+  color: $colorLt;
+  padding: 2em 1em 1em;
+  ul
+  {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  li
+  {
+    margin-bottom: 1em;
+    background: $backgroundLt;
+    color: $colorDk;
+  }
+}
+
+// Section C
+#section-c
+{
+  padding: 2em;
+  .content-text
+  {
+    background: $backgroundLt - 10;
+    border-radius: 4px;
+  }
+}
+
+// Section D
+#section-d
+{
+  background: $backgroundDk;
+  color: $colorLt;
+  .box
+  {
+    padding: 2em;
+
+  }
+  .box:first-child
+  {
+    background: $blue;
+  }
+}
+
+// Footer
+#main-footer
+{
+  background: $orange;
+  color: $colorLt;
+  padding: .5em;
+}

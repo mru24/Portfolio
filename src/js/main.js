@@ -1,9 +1,15 @@
+
+// SCROLL TO TOP ARROW MADE INVISIBLE WHEN PAGE IS AT THE TOP
 $('.scrollToTop').css('display', 'none');
 
 $(document).ready(function() {
 
-  $.scrollTo('#home');
+  // NAVBAR HAMBURGER TRANSFORM TO CROSS
+  $('.hamburgerWrapper').on('click', function() {
+    $(this).toggleClass('cross');
+  });
 
+  // SKILLSET SLIDER - SLICK JQUERY PLUGIN
   $('.skillset').slick({
     dots: false,
     infinite: true,
@@ -18,6 +24,7 @@ $(document).ready(function() {
     pauseOnHover: false
   });
 
+  // SOFT SCROLL - SCROLLTO JQUERY PLUGIN
   $('a').on('click', function(event) {
     // event.preventDefault();
     $.scrollTo($(this).attr('href'), 800, {
@@ -25,6 +32,7 @@ $(document).ready(function() {
     });
   });
 
+  // SCROLL TO TOP ARROW
   $(window).scroll(function() {
         if($(this).scrollTop()>20) {
           $('.scrollToTop').fadeIn();

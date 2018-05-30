@@ -1,0 +1,216 @@
+@import "mixins";
+
+
+body
+{
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+  line-height: 1.5;
+  // short
+  font: 15px/1.5 Arial, Helvetica, sans-serif;
+}
+
+//  Global
+.container
+{
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
+}
+ul
+{
+  margin: 0;
+  padding: 0;
+}
+.button_1
+{
+  height: 38px;
+  background: #e84914;
+  border: none;
+  padding: 0 20px;
+  color: white;
+}
+.dark
+{
+  padding: 15px;
+  background: #354248;
+  color: white;
+  margin: 10px 0;
+}
+
+//  header
+
+header
+{
+  background: #35424a;
+  color: #ffffff;
+  padding-top: 30px;
+  min-height: 70px;
+  border-bottom: 3px solid #e8491d;
+  a
+  {
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+  }
+  li
+  {
+    float: left;
+    display: inline;
+    padding: 0 20px;
+  }
+}
+header
+{
+  .logo
+  {
+    float: left;
+    h1
+    {
+      margin: 0;
+    }
+
+  }
+  nav
+  {
+    float: right;
+    margin-top: 10px;
+  }
+  .highlight, .current a
+  {
+    color: #e8491d;
+    font-weight: bold;
+  }
+  a:hover
+  {
+    color: #cccccc;
+    font-weight: bold;
+  }
+}
+
+//  showcase
+#showcase
+{
+  position: relative;
+  z-index: -1;
+  opacity: 0.7;
+  min-height: 400px;
+  background: url('../img/showcase.jpg') no-repeat;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  color: white;
+  h1
+  {
+    margin-top: 100px;
+    margin-bottom: 10px;
+    font-size: 55px;
+  }
+  p
+  {
+    font-size: 20px;
+  }
+}
+
+//  newsletter
+#newsletter
+{
+  padding: 15px;
+  color: white;
+  background: #35424a;
+  h1
+  {
+    float: left;
+  }
+  form
+  {
+    float: right;
+    margin-top: 15px;
+  }
+  input[type="email"]
+  {
+    padding: 4px;
+    height: 25px;
+    width: 250px;
+  }
+}
+
+//  boxes
+#boxes
+{
+  margin-top: 20px;
+  .box
+  {
+    float: left;
+    width: 30%;
+    padding: 10px;
+    text-align: center;
+    img
+    {
+      width: 90px;
+    }
+  }
+}
+
+//  sidebar
+aside#sidebar
+{
+  float: right;
+  width: 30%;
+  margin-top: 10px;
+  .question input, textarea
+  {
+    width: 90%;
+    padding: 5px;
+  }
+}
+article#main-col
+{
+  float: left;
+  width: 65%;
+  .fa
+  {
+    font-size: 25px;
+    margin-bottom: 15px;
+    a
+    {
+      color: black;
+      text-decoration: none;
+      font-family: sans-serif;
+      font-size: 18px;
+      margin-left: 10px;
+      &:hover
+      {
+        color: red;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+//  contact
+ul.contact li
+{
+  list-style: none;
+  padding: 15px;
+  border: 1px solid #ccc;
+  margin-bottom: 5px;
+  background: #e6e6e6;
+  &:hover
+  {
+    background: #f7f7f7;
+  }
+}
+
+footer
+{
+  margin-top: 160px;
+  padding: 20px;
+  color: white;
+  background: #e8491d;
+  text-align: center;
+}

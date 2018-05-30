@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css?family=Satisfy");
+#background {
+  background-image: url(../img/image10.jpeg);
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+     background-size: contain;
+  opacity: .15;
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  width: 100%;
+  height: 200%;
+  -webkit-transition: .5s;
+  -o-transition: .5s;
+  -moz-transition: .5s;
+  transition: .5s;
+}
+
+h1 {
+  font-size: 2.4em;
+}
+
+@media only screen and (max-width: 765px) {
+  h1 {
+    font-size: 1.2em;
+  }
+}
+
+p {
+  font-size: 1.4em;
+}
+
+.btn {
+  font-size: 2em;
+}
+
+@media only screen and (max-width: 765px) {
+  .btn {
+    font-size: 1.2em;
+  }
+}
+
+.navbar-brand {
+  font-family: 'Satisfy', cursive;
+  font-size: 2em;
+  margin-right: 20px;
+}
+
+.navbar-brand:hover span {
+  color: #34ED24;
+}
+
+.navbar-brand span {
+  color: #20A614;
+}
+
+ul.navbar-nav {
+  text-align: center;
+}
+
+ul.navbar-nav li:hover {
+  background: #1A1A1A;
+}
+
+ul.navbar-nav:last-child {
+  background: #056200;
+}
+
+@media only screen and (max-width: 765px) {
+  #myCarousel .carousel-inner .item .container p {
+    display: none;
+  }
+}
+
+.marketing .row img {
+  display: block;
+  margin: 40px auto;
+  -webkit-box-shadow: 0 0 30px #2F2F2F;
+  -moz-box-shadow: 0 0 30px #2F2F2F;
+  box-shadow: 0 0 30px #2F2F2F;
+}
+
+.marketing .row p {
+  text-indent: 30px;
+}
+
+footer {
+  margin: 40px 0;
+}
+
+@media only screen and (max-width: 765px) {
+  footer {
+    font-size: 0.8em;
+  }
+}

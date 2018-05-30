@@ -1,0 +1,617 @@
+@mixin med
+  @media only screen and (max-width: 1100px)
+    @content
+
+
+$fontColDk: #666
+
+$colorBlue: #29afcc
+$colorRed: #7c0404
+$colorGreen: #047c3c
+
+$borderCol: #bbb
+
+$shadowCol: #bbb
+
+$shadow: 0 2px 5px #888
+
+*
+  margin: 0
+  padding: 0
+body
+  // overflow-x: hidden
+  font-family: sans-serif
+  color: $fontColDk
+ul
+  margin: 0
+  padding: 0
+li
+  list-style: none
+a
+  text-decoration: none
+  color: black !important
+a:visited
+  text-decoration: none
+  color: black !important
+a:active
+  text-decoration: none
+  color: black !important
+h1, h2, h3, h4, h5, h6
+  color: $fontColDk
+
+body
+  #header
+    $height: 60px
+    width: 100%
+    height: $height
+    border: 1px solid $borderCol
+    background: linear-gradient(white, #c6c1c1, white)
+    .brand-logo
+      padding-left: 60px
+      margin-top: -8px
+      font-family: "Brush Script MT", cursive
+      text-shadow: $shadow
+      span
+        font-family: 'Verdana'
+        font-weight: bold
+        color: $fontColDk
+    .collapseIcon
+      margin-top: -10px
+    ul
+      li
+        line-height: $height
+        a
+          display: block
+          width: 100%
+          height: 100%
+          padding: 0 30px
+          font-size: 18px
+          color: $fontColDk
+      .divider
+        height: 40px
+        margin: 4px 20px
+        border-right: 1px solid $borderCol
+
+body
+  header
+    background-image: url(../img/header.jpg)
+    background-repeat: no-repeat
+    background-size: cover
+    background-position: center
+    height: 650px
+    margin-bottom: 50px
+    .headerLogo
+      margin: initial
+      padding: initial
+      width: 350px
+      position: relative
+      top: 20%
+      left: 5%
+      text-align: center
+      transition: .5s
+      @include med
+        top: 25%
+        left: 50%
+        transform: translateX(-50%)
+      .firstLine
+        opacity: 0
+        font-size: 5
+        line-height: 5
+      span
+        display: block
+        $spacing: 5px !global
+        text-indent: 0
+        margin: 0
+        padding: 0
+        text-transform: uppercase
+        font-family: 'Kartika'
+        line-height: 30px
+        font-weight: bold
+        letter-spacing: $spacing
+        color: $fontColDk
+        text-shadow: $shadow
+      .lineOne
+        font-size: 32px
+        letter-spacing: $spacing + 4px
+        line-height: 12px
+      .lineTwo
+        position: relative
+        z-index: 2
+        font-size: 34px
+        letter-spacing: $spacing + 8px
+        font-stretch: expanded
+      .lineThree
+        font-size: 48px
+        letter-spacing: $spacing - 4px
+        color: white
+
+body
+  #about, #orderProcess, #plans, #features
+    .container
+      h2
+        width: 170px
+        text-align: center
+        margin: 40px auto
+        padding-bottom: 6px
+        border-bottom: 1px solid $borderCol
+        color: $fontColDk
+        font-size: 35px
+      p
+        margin: auto
+        text-indent: 40px
+        line-height: 1.5
+        font-family: 'Verdana'
+        font-size: 18px
+        color: $fontColDk
+      button
+        $height: 40px
+        width: 220px
+        height: $height
+        line-height: $height
+        border: 1px solid $colorBlue
+        border-radius: 15px
+        background: linear-gradient($colorBlue + 30, $colorBlue - 60)
+        color: $fontColDk
+        font-size: 18px
+        display: block
+        margin: auto
+        margin-top: 60px
+        a
+          width: 100%
+          height: 100%
+          display: block
+
+body
+  #about
+    .container
+      .chevron
+        img
+          display: block
+          width: 80px
+          margin: 60px auto
+          opacity: .6
+      .row
+        margin-bottom: 60px
+        padding-bottom: 70px
+        border-bottom: 1px solid $borderCol
+        .col
+          img
+            display: block
+            border-radius: 50%
+            box-shadow: -6px 8px 40px #fff, -20px 8px 30px $colorBlue
+
+body
+  .chevron
+    img
+      display: block
+      width: 80px
+      margin: 160px auto
+      opacity: .6
+
+$width: 400px
+$c1width: $width
+$c2width: $c1width*1.61803
+$c3width: $c2width*1.61803
+$top: 300px
+
+body
+  #orderProcess
+    height: 1200px
+    overflow-x: hidden
+    .container
+      width: 100%
+      max-width: initial
+      h2
+        width: 260px
+      .processGrafics
+        position: relative
+        height: 100%
+        .circle
+          margin: auto
+          border-radius: 50%
+          background: linear-gradient(to right, $colorBlue + 30, $colorBlue - 60)
+        .circle01
+          width: $c1width
+          height: $c1width
+          position: absolute
+          top: $top
+          left: 50%
+          transform: translateX(-50%)
+        .circle02
+          width: $c2width
+          height: $c2width
+          position: absolute
+          top: $top - $c2width + ($c1width/2) + ($c2width/2)
+          left: 50%
+          transform: translateX(-50%)
+          margin-left: $c2width/2
+          &::after
+            width: 100%
+            height: 100%
+            position: absolute
+            top: 0
+            left: -50%
+            transform: translateX(-50%)
+            content: ''
+            border-radius: 50%
+            background: linear-gradient(to right, $colorBlue + 30, $colorBlue - 60)
+        .circle03
+          width: $c3width
+          height: $c3width
+          position: absolute
+          top: $top - ($c3width/2) + ($c1width/2)
+          left: 50%
+          transform: translateX(-50%)
+          margin-left: $c3width/2 + $c2width/2
+          &::after
+            width: 100%
+            height: 100%
+            position: absolute
+            top: 0
+            left: - $c2width - $c3width
+            content: ''
+            border-radius: 50%
+            background: linear-gradient(to right, $colorBlue + 30, $colorBlue - 60)
+        .centerLine
+          position: absolute
+          height: $c3width
+          right: 50%
+          border-right: 2px solid $borderCol + 60
+          @include med
+            right: 90%
+          %pointingCircle
+            width: 40px
+            height: 40px
+            line-height: 40px
+            text-align: center
+            font-size: 20px
+            font-weight: bold
+            color: red
+            border-radius: 50%
+            box-shadow: inset 0 0 15px $shadowCol - 80
+            background: white
+            position: absolute
+            z-index: 100
+            left: 0
+            top: $top + $c1width/2
+            transform: translate(-50%, -50%)
+          .pointingCircle
+            @extend %pointingCircle
+            &::before
+              @extend %pointingCircle
+              content: '1'
+              left: 20px
+              top: -110px
+            &::after
+              @extend %pointingCircle
+              content: '3'
+              left: 20px
+              top: 145px
+          %pointingLine
+            width: 80px
+            height: 2px
+            background: white
+            position: absolute
+            left: 30px
+            top: $top + $c1width/2 - 1px
+          .pointingLine
+            @extend %pointingLine
+            @include med
+              display: none
+            &::before
+              @extend %pointingLine
+              content: ''
+              top: -130px
+              left: -145px
+            &::after
+              @extend %pointingLine
+              content: ''
+              top: 125px
+              left: -145px
+
+
+          %infoBox
+            $boxWidth: 400px !global
+            $boxHeight: 120px !global
+            width: $boxWidth
+            background: white
+            border-radius: 10px
+            padding: 15px 10px
+            box-shadow: inset 0 0 30px $shadowCol - 80
+            @include med
+              width: 320px
+
+          .infoContainer
+            position: absolute
+
+          .infoContainer1
+            top: 445px
+            left: 140px
+            @include med
+              left: 15px
+          .infoContainer2
+            top: 445px - 130px
+            left: -160px - $boxWidth
+            @include med
+              left: 15px
+          .infoContainer3
+            top: 445px + 130px
+            left: -160px - $boxWidth
+            @include med
+              left: 15px
+
+          .infoBox
+            h5
+              text-align: center
+              margin-top: 0
+              margin-bottom: 10px
+            p
+              margin: 0
+              font-size: 12px
+
+
+          .infoBox1
+            @extend %infoBox
+          .infoBox2
+            @extend %infoBox
+          .infoBox3
+            @extend %infoBox
+
+
+body
+  #plans
+    margin-bottom: 160px
+    overflow-x: hidden
+    .container
+      position: relative
+      width: 100%
+      max-width: initial
+      h2
+        width: 120px
+        margin-bottom: 120px
+      .row
+        margin: 0
+        .col
+          padding: 0
+          %card
+            width: 340px
+            height: 520px
+            border-radius: 10px
+            margin: auto
+          .card1
+            @extend %card
+            background: $colorRed
+            background: linear-gradient($colorRed + 40, $colorRed - 40)
+            &::after
+              @extend %card
+              position: absolute
+              z-index: -1
+              content: ''
+              transform: rotate(-10deg)
+              background: $colorRed + 120
+              background: linear-gradient($colorRed + 120, $colorRed)
+              opacity: .3
+          .card2
+            @extend %card
+            background: $colorBlue
+            background: linear-gradient($colorBlue + 40, $colorBlue - 90)
+            &::after
+              @extend %card
+              position: absolute
+              z-index: -1
+              content: ''
+              transform: rotate(-10deg)
+              background: $colorBlue + 120
+              background: linear-gradient($colorBlue + 120, $colorBlue)
+              opacity: .4
+            &::before
+              @extend %card
+              position: absolute
+              z-index: -1
+              content: ''
+              transform: rotate(10deg)
+              background: $colorBlue + 120
+              background: linear-gradient($colorBlue + 120, $colorBlue)
+              opacity: .4
+          .card3
+            @extend %card
+            background: $colorGreen
+            background: linear-gradient($colorGreen + 40, $colorGreen - 90)
+            &::before
+              @extend %card
+              position: absolute
+              z-index: -1
+              content: ''
+              transform: rotate(10deg)
+              background: $colorGreen + 120
+              background: linear-gradient($colorGreen + 120, $colorGreen)
+              opacity: .4
+          .card
+            box-shadow: $shadow
+            position: relative
+            padding: 0
+            margin: 30px auto
+            .title
+              position: absolute
+              width: 100%
+              margin-top: -22px
+              &::before
+                width: 106%
+                left: -3%
+                height: 86%
+                position: absolute
+                content: ''
+                box-shadow: 0 20px 15px -15px $shadowCol
+              h3
+                border-radius: 10px 10px 0 0
+                background: white
+                padding: 20px 0
+                text-align: center
+                text-transform: uppercase
+                color: $fontColDk
+            .price
+              margin-left: 45px
+              margin-bottom: 20px
+              h5
+                color: white
+            .planContent
+              position: absolute
+              top: 100px
+              padding-left: 40px
+              width: 100%
+              ul
+                .option
+                  list-style-type: disc
+                  font-size: 18px
+                  color: white
+                  margin-bottom: 15px
+            button
+              position: absolute
+              bottom: 10px
+              left: 50%
+              transform: translateX(-50%)
+              height: 50px
+              line-height: 50px
+              font-size: 22px
+              color: white
+              text-transform: uppercase
+
+body
+  #features
+    .container
+      h2
+        margin-bottom: 120px
+      .row
+      .flex
+        display: flex
+        flex-wrap: wrap
+        @include med
+          display: block
+        .col
+          .feature
+            width: 90%
+            height: 100%
+            margin: 20px auto
+            padding: 10px
+            padding-top: 15px
+            border: 1px solid $borderCol
+            border-radius: 30px
+            box-shadow: inset 0 0 20px $shadowCol
+            h5
+              margin-top: 0
+              border-bottom: 1px solid $borderCol
+              text-transform: uppercase
+            p
+              font-size: 16px
+              text-indent: 30px
+
+body
+  #contact
+    .container
+      margin-top: 60px
+      padding-top: 40px
+      border-top: 1px solid $borderCol
+      .faq
+        ul
+          li
+            padding: 20px
+          li.q
+            background: #eee
+            font-weight: bold
+            font-size: 1.2em
+            border-bottom: 1px solid $borderCol
+            cursor: pointer
+            img
+              position: relative
+              top: 2px
+              margin-right: 15px
+          li.a
+            background: #ddd
+            display: none
+      .row
+        margin-top: 40px
+        .col
+          .fas, .far
+            display: block
+            font-size: 50px
+            color: $colorBlue
+            text-shadow: $shadow
+            transition: .5s
+            @include med
+              font-size: 30px
+              color: red
+              margin-left: 60px
+            &:hover
+              transform: scale(1.4)
+          h3
+            font-size: 30px
+            font-style: italic
+
+.rotate
+  transform: rotate(90deg)
+
+
+body
+  footer
+    background-image: url(../img/footer.jpg)
+    background-repeat: no-repeat
+    background-size: cover
+    background-position: center
+    height: 450px
+    margin-top: 50px
+    position: relative
+    #footerNav
+      height: 50px
+      width: 100%
+      text-align: center
+      line-height: 50px
+      margin: 0
+      padding: 0
+      position: absolute
+      bottom: 0
+      left: 0
+      ul
+        text-align: center
+        li
+          display: inline-block
+          margin: 0 5px
+          a
+            font-size: 20px
+
+body
+  .backToTop
+    position: fixed
+    $yPos: 15px !global
+    bottom: $yPos
+    right: 15px
+    animation: jump 8s infinite
+    a
+      .fas
+        color: $colorBlue + 50
+        font-size: 70px
+        text-shadow: $shadow
+
+
+
+
+.clearFloat
+  clear: both
+
+
+@keyframes jump
+  0%
+    bottom: $yPos
+  60%
+    bottom: $yPos
+  62%
+    bottom: 55px
+  70%
+    bottom: $yPos
+  72%
+    bottom: 35px
+  80%
+    bottom: $yPos
+  82%
+    bottom: 20px
+  100%
+    bottom: $yPos

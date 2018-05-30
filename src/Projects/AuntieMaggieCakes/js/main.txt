@@ -1,0 +1,46 @@
+$(document).ready(function() {
+
+  $('.parallax').parallax();
+
+  $(".dropdown-button").dropdown();
+
+  $('.carousel.carousel-slider').carousel({fullWidth: true});
+
+    setInterval(function() {
+      $('.carousel').carousel('next');
+    }, 8000);
+
+  $(".button-collapse").sideNav({closeOnClick: true});
+
+  $('#message').trigger('autoresize');
+
+
+  var logoY = $('.brand-logo').offset().top;
+  var stickyLogo = function() {
+      var scrollY = $(window).scrollTop();
+      if (scrollY > logoY) {
+        $('.brand-logo').addClass('sticky');
+      }else{
+        $('.brand-logo').removeClass('sticky');
+    }
+  };
+
+  stickyLogo();
+
+  $(window).scroll(function() {
+      stickyLogo();
+  });
+
+  $('.intro').click(function(event) {
+    $(this).fadeOut('1000', function() {
+      $(this).css('display', 'none');
+    });
+  });
+
+    // $.scrollTo('#top');
+
+    $('nav a').click(function(event) {
+    $.scrollTo($(this).attr('href'), 800);
+  });
+
+});

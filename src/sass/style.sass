@@ -60,6 +60,63 @@ ul
 .red
   color: red
 
+// NAVBAR
+
+nav
+  ul
+    text-align: center
+  .navbar-toggler
+    border: none
+    outline: none
+
+// HAMBURGER
+
+.hamburgerWrapper
+  $hamburgerColor: #fff
+  width: 46px
+  height: 37px
+  border: 1px solid $hamburgerColor
+  border-radius: 5px
+  position: relative
+  opacity: .6
+  transition: all .4s
+  .hamburger
+    width: 30px
+    height: 3px
+    background: $hamburgerColor
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    transition: all .4s
+    &::before
+      @extend .hamburger
+      content: ''
+      top: -8px
+    &::after
+      @extend .hamburger
+      content: ''
+      top: 11px
+
+.hamburgerWrapper:hover
+  opacity: 1
+
+.cross
+  .hamburger
+    background: transparent
+  .hamburger::before
+    transform: rotate(45deg)
+    top: 0
+    left: 0
+  .hamburger::after
+    transform: rotate(-45deg)
+    top: 0
+    left: 0
+
+// HAMBURGER END
+
+// NAVBAR END
+
 // SECTIONS
 
 #about
@@ -72,7 +129,6 @@ ul
     margin-top: 30px
   p
     text-indent: 30px
-    font-size: 1.1em
     font-weight: 300
     letter-spacing: 2px
   .skillset
@@ -104,6 +160,8 @@ ul
     grid-gap: $gap
     background: #333
     border-radius: 4px
+    @include bp-mobile
+      height: 40vh
     .portfolio-item
       display: flex
       overflow-y: hidden
@@ -129,6 +187,8 @@ ul
           position: absolute
     .portfolio-item:hover img
       animation: imgScroll infinite 12s linear
+
+
   .portfolioContent2
     display: grid
     height: 80vh
@@ -211,12 +271,16 @@ footer
         box-shadow: 0 0 15px #222
 
 .scrollToTop
-  position: fixed
-  bottom: 10px
-  right: 10px
   $size: 70px
   width: $size
   height: $size
+  position: fixed
+  top: 10%
+  right: 10px
+  @include bp-mobile
+    position: fixed
+    top: 90%
+    right: 10px
   img
     width: 100%
     height: 100%
