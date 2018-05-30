@@ -67,6 +67,9 @@ ul
     margin-top: 30px
   p
     text-indent: 30px
+    font-size: 1.3em
+    font-weight: 300
+    letter-spacing: 2px
   .skillset
     margin: 30px auto
     display: flex
@@ -85,22 +88,42 @@ ul
         &:hover
           opacity: 1
 
-
 #portfolio
   .portfolioContent
-    display: flex
-    justify-content: space-around
-    align-items: center
-    flex-wrap: wrap
-    .box
-      height: 120px
-      width: 120px
-      border: $border
-      margin: 20px 10px
+    display: grid
+    height: 80vh
+    grid-template-rows: repeat(6, 1fr)
+    grid-template-columns: repeat(5, 1fr)
+    $gap: 5px
+    padding: $gap
+    grid-gap: $gap
+    background: #333
+    border-radius: 4px
+    .portfolio-item
       display: flex
-      justify-content: space-around
-      align-items: center
-      transition: .4s
+      overflow-y: hidden
+      position: relative
+      &.square
+        grid-row: span 2
+        grid-column: span 2
+      &.large-square
+        grid-row: span 3
+        grid-column: span 3
+      &.small-square
+        grid-row: span 1
+        grid-column: span 1
+      &.wide
+        grid-row: span 2
+        grid-column: span 3
+      &.tall
+        grid-row: span 3
+        grid-column: span 2
+      a
+        img
+          width: 100%
+          position: absolute
+    .portfolio-item:hover img
+      animation: imgScroll infinite 12s
 
 #contact
   form
@@ -135,3 +158,9 @@ footer
     transition: .5s
     &:hover
       opacity: 1
+
+@keyframes imgScroll
+  from
+    top: 0
+  to
+    transform: translateY(-100%)
